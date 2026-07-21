@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --background: #0A0A0A;
-  --foreground: #F4F1EA;
-  --primary: #D8C376;
-  --primary-foreground: #0A0A0A;
-  --secondary: #161616;
-  --secondary-foreground: #F4F1EA;
-  --accent: #4A7C6F;
-  --accent-foreground: #F4F1EA;
-  --muted: #141414;
-  --muted-foreground: #8C867D;
-  --card: #121212;
-  --card-foreground: #F4F1EA;
-  --border: #242424;
-  --input: #161616;
-  --ring: #D8C376;
+  --background: 10 10 10;
+  --foreground: 244 241 234;
+  --primary: 216 195 118;
+  --primary-foreground: 10 10 10;
+  --secondary: 22 22 22;
+  --secondary-foreground: 244 241 234;
+  --accent: 74 124 111;
+  --accent-foreground: 244 241 234;
+  --muted: 20 20 20;
+  --muted-foreground: 140 134 125;
+  --card: 18 18 18;
+  --card-foreground: 244 241 234;
+  --border: 36 36 36;
+  --input: 22 22 22;
+  --ring: 216 195 118;
   --radius: 0.85rem;
   --font-sans: var(--font-dm-sans), sans-serif;
   --font-display: var(--font-fraunces), serif;
@@ -46,19 +46,28 @@
   ::-webkit-scrollbar {
     width: 8px;
   }
+
   ::-webkit-scrollbar-track {
     background: #0A0A0A;
   }
+
   ::-webkit-scrollbar-thumb {
     background: #262626;
     border-radius: 9999px;
     border: 2px solid #0A0A0A;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: var(--primary);
   }
 
-  h1, h2, h3, h4, h5, h6, p {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
     margin: 0;
   }
 }
@@ -109,9 +118,12 @@
   }
 
   @keyframes floatSlow {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0px);
     }
+
     50% {
       transform: translateY(-6px);
     }

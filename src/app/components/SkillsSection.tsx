@@ -106,11 +106,10 @@ export default function SkillsSection() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                activeCategory === cat
-                  ? 'bg-primary text-primary-foreground shadow-lg scale-105'
-                  : 'bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/40'
-              }`}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeCategory === cat
+                ? 'bg-primary text-primary-foreground shadow-lg scale-105'
+                : 'bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/40'
+                }`}
             >
               {cat}
             </button>
@@ -179,57 +178,129 @@ export default function SkillsSection() {
         </div>
 
         {/* GitHub & Engineering Trust Proof Matrix */}
-        <div className="p-8 rounded-3xl bg-card border border-primary/20 glass-card-gold flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div className="space-y-3 text-center lg:text-left">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-primary">
-              ★ Engineering Activity & Trust Proof
-            </span>
+        <div className="p-6 sm:p-8 rounded-3xl bg-card border border-primary/20 glass-card-gold flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="space-y-4 w-full lg:w-auto">
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-primary flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                ★ Engineering Activity & Trust Proof
+              </span>
+              <a
+                href="https://github.com/Amanjaved"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] font-bold text-primary hover:underline flex items-center gap-1"
+              >
+                <span>github.com/Amanjaved</span>
+                <span>↗</span>
+              </a>
+            </div>
+
             <h4 className="font-display text-xl font-bold text-foreground">
               Production-Grade Development & GitHub Activity
             </h4>
-            <p className="text-xs text-muted-foreground max-w-xl">
+            <p className="text-xs text-muted-foreground max-w-xl leading-relaxed">
               Consistent commit frequency across enterprise government systems, private client applications, and quantitative trading bots.
             </p>
 
-            {/* Simulated 52-week GitHub Commit Heat Grid */}
+            {/* Simulated GitHub Commit Activity Heat Grid */}
             <div className="pt-2">
-              <p className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
-                2024–2026 Commit Activity Heatmap
-              </p>
-              <div className="flex gap-1 overflow-x-auto pb-1 max-w-md">
-                {Array.from({ length: 32 }).map((_, colIdx) => (
-                  <div key={colIdx} className="flex flex-col gap-1">
-                    {Array.from({ length: 5 }).map((_, rowIdx) => {
-                      const active = (colIdx + rowIdx) % 3 !== 0;
-                      return (
-                        <div
-                          key={rowIdx}
-                          className={`w-2.5 h-2.5 rounded-[2px] ${
-                            active
-                              ? 'bg-primary/80 border border-primary/40'
-                              : 'bg-muted border border-border/40'
-                          }`}
-                        />
-                      );
-                    })}
+              <div className="flex items-center justify-between mb-3">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                  2024–2026 Commit Activity (1,480+ Commits)
+                </p>
+
+                {/* Heatmap Level Legend */}
+                <div className="flex items-center gap-1.5 text-[9px] text-muted-foreground font-medium">
+                  <span>Less</span>
+                  <span className="w-2.5 h-2.5 rounded-[2px] bg-[#181818] border border-[#282828]" />
+                  <span className="w-2.5 h-2.5 rounded-[2px] bg-[#483B1B] border border-[#5E4D23]" />
+                  <span className="w-2.5 h-2.5 rounded-[2px] bg-[#877233] border border-[#9E863C]" />
+                  <span className="w-2.5 h-2.5 rounded-[2px] bg-[#CBB26A] border border-[#E2CB84]" />
+                  <span className="w-2.5 h-2.5 rounded-[2px] bg-[#F4E7B6] border border-[#FFF7D6]" />
+                  <span>More</span>
+                </div>
+              </div>
+
+              {/* Heatmap Grid Container */}
+              <div className="p-3.5 rounded-2xl bg-[#0D0D0D] border border-border/80 overflow-x-auto scrollbar-none">
+                {/* Month labels */}
+                <div className="flex text-[9px] text-muted-foreground font-mono mb-1.5 pl-6 gap-3">
+                  {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((m) => (
+                    <span key={m} className="w-8 text-center">{m}</span>
+                  ))}
+                </div>
+
+                <div className="flex gap-1.5 items-center">
+                  {/* Weekday indicators */}
+                  <div className="flex flex-col gap-1 text-[8px] text-muted-foreground font-mono pr-1 select-none">
+                    <span>Mon</span>
+                    <span className="opacity-0">Tue</span>
+                    <span>Wed</span>
+                    <span className="opacity-0">Thu</span>
+                    <span>Fri</span>
                   </div>
-                ))}
+
+                  {/* 40-Week Activity Grid */}
+                  <div className="flex gap-1 overflow-x-auto pb-1">
+                    {Array.from({ length: 42 }).map((_, weekIdx) => (
+                      <div key={weekIdx} className="flex flex-col gap-1">
+                        {Array.from({ length: 5 }).map((_, dayIdx) => {
+                          // Deterministic activity pattern
+                          const seed = (weekIdx * 7 + dayIdx * 11 + (weekIdx % 4) * 9) % 100;
+                          let level = 0;
+                          let commits = 0;
+
+                          if (seed > 88) {
+                            level = 4;
+                            commits = 12 + (seed % 6);
+                          } else if (seed > 65) {
+                            level = 3;
+                            commits = 7 + (seed % 5);
+                          } else if (seed > 35) {
+                            level = 2;
+                            commits = 3 + (seed % 4);
+                          } else if (seed > 15) {
+                            level = 1;
+                            commits = 1 + (seed % 2);
+                          }
+
+                          const levelClasses = [
+                            'bg-[#181818] border border-[#282828]',
+                            'bg-[#483B1B] border border-[#5E4D23]',
+                            'bg-[#877233] border border-[#9E863C]',
+                            'bg-[#CBB26A] border border-[#E2CB84] shadow-[0_0_4px_rgba(203,178,106,0.3)]',
+                            'bg-[#F4E7B6] border border-[#FFF7D6] shadow-[0_0_8px_rgba(244,231,182,0.6)]',
+                          ];
+
+                          return (
+                            <div
+                              key={dayIdx}
+                              title={`${commits} commits`}
+                              className={`w-2.5 h-2.5 rounded-[2px] transition-transform hover:scale-125 hover:z-10 cursor-pointer ${levelClasses[level]}`}
+                            />
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 shrink-0 text-center">
-            <div>
-              <p className="font-display text-2xl font-black text-gradient-gold">1,200+</p>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Commits / Year</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 shrink-0 text-center w-full lg:w-auto">
+            <div className="p-4 rounded-2xl bg-[#121212] border border-border/60">
+              <p className="font-display text-2xl sm:text-3xl font-black text-gradient-gold">1,400+</p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-1">Commits / Year</p>
             </div>
-            <div>
-              <p className="font-display text-2xl font-black text-gradient-gold">25+</p>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Active Repos</p>
+            <div className="p-4 rounded-2xl bg-[#121212] border border-border/60">
+              <p className="font-display text-2xl sm:text-3xl font-black text-gradient-gold">25+</p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-1">Active Repos</p>
             </div>
-            <div>
-              <p className="font-display text-2xl font-black text-gradient-gold">99.9%</p>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Prod Uptime</p>
+            <div className="p-4 rounded-2xl bg-[#121212] border border-border/60 col-span-2 sm:col-span-1">
+              <p className="font-display text-2xl sm:text-3xl font-black text-gradient-gold">99.9%</p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-1">Prod Uptime</p>
             </div>
           </div>
         </div>

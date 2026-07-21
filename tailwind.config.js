@@ -9,31 +9,31 @@ module.exports = {
     },
     extend: {
       colors: {
-        background: { DEFAULT: 'var(--background)' },
-        foreground: { DEFAULT: 'var(--foreground)' },
+        background: { DEFAULT: 'rgb(var(--background) / <alpha-value>)' },
+        foreground: { DEFAULT: 'rgb(var(--foreground) / <alpha-value>)' },
         primary: {
-          DEFAULT: 'var(--primary)',
-          foreground: 'var(--primary-foreground)',
+          DEFAULT: 'rgb(var(--primary) / <alpha-value>)',
+          foreground: 'rgb(var(--primary-foreground) / <alpha-value>)',
         },
         secondary: {
-          DEFAULT: 'var(--secondary)',
-          foreground: 'var(--secondary-foreground)',
+          DEFAULT: 'rgb(var(--secondary) / <alpha-value>)',
+          foreground: 'rgb(var(--secondary-foreground) / <alpha-value>)',
         },
         accent: {
-          DEFAULT: 'var(--accent)',
-          foreground: 'var(--accent-foreground)',
+          DEFAULT: 'rgb(var(--accent) / <alpha-value>)',
+          foreground: 'rgb(var(--accent-foreground) / <alpha-value>)',
         },
         muted: {
-          DEFAULT: 'var(--muted)',
-          foreground: 'var(--muted-foreground)',
+          DEFAULT: 'rgb(var(--muted) / <alpha-value>)',
+          foreground: 'rgb(var(--muted-foreground) / <alpha-value>)',
         },
         card: {
-          DEFAULT: 'var(--card)',
-          foreground: 'var(--card-foreground)',
+          DEFAULT: 'rgb(var(--card) / <alpha-value>)',
+          foreground: 'rgb(var(--card-foreground) / <alpha-value>)',
         },
-        border: { DEFAULT: 'var(--border)' },
-        input: { DEFAULT: 'var(--input)' },
-        ring: { DEFAULT: 'var(--ring)' },
+        border: { DEFAULT: 'rgb(var(--border) / <alpha-value>)' },
+        input: { DEFAULT: 'rgb(var(--input) / <alpha-value>)' },
+        ring: { DEFAULT: 'rgb(var(--ring) / <alpha-value>)' },
       },
       borderRadius: {
         DEFAULT: 'var(--radius)',
